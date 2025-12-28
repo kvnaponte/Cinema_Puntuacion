@@ -34,19 +34,25 @@ def add_movie():
 
     conn = get_db_connection()
     conn.execute("""
-        INSERT INTO movies (year, title, director, country, producer, distributor, genre, rating, category)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """, (
-        data["year"],
-        data["title"],
-        data["director"],
-        data["country"],
-        data["producer"],
-        data["distributor"],
-        data["genre"],
-        data["rating"],
-        data["category"]
-    ))
+    INSERT INTO movies (
+        year, title, director, country,
+        producer, distributor, genre,
+        rating, category, cover_url
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+""", (
+    data["year"],
+    data["title"],
+    data["director"],
+    data["country"],
+    data["producer"],
+    data["distributor"],
+    data["genre"],
+    data["rating"],
+    data["category"],
+    data.get("cover_url")
+))
+
     conn.commit()
     conn.close()
 

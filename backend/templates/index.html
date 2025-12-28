@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <head>
     <meta charset="UTF-8">
     <title>Proyecto Cronos</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cinema.css') }}">
-    <script src="{{ url_for('static', filename='js/api.js') }}" type="module"></script>
-    <script src="{{ url_for('static', filename='js/render.js') }}" type="module"></script>
-
-
+    <script src="{{ url_for('static', filename='js/api.js') }}" type="module" defer></script>
+    <script src="{{ url_for('static', filename='js/render.js') }}" type="module" defer></script>
 </head>
+
 <body>
+
     <h1>Proyecto Cronos</h1>
 
-    <!-- Formulario para agregar película -->
+    <!-- Formulario -->
     <section>
         <h2>Agregar Película</h2>
         <form id="movie-form">
@@ -25,19 +25,44 @@
             <input type="text" name="distributor" placeholder="Distribuidor">
             <input type="text" name="genre" placeholder="Género">
             <input type="number" step="0.1" name="rating" placeholder="Rating" required>
-            <input type="text" name="category" placeholder="Categoría" required>
+            <input type="text" name="cover_url" placeholder="URL carátula">
             <button type="submit">Agregar</button>
         </form>
     </section>
 
+    <!-- Búsqueda -->
     <section id="search-bar">
-    <input type="text" id="search-input" placeholder="Buscar película...">
+        <input type="text" id="search-input" placeholder="Buscar película...">
     </section>
 
-    <!-- Lista de películas -->
-    <section id="archive"></section>
-    <h2>Archivo Cronos</h2>
-    <section id="movie-list"></section>
+    <!-- Archivo -->
+    <section id="archive">
+        <h2>Archivo Cronos</h2>
+        <div id="movie-list"></div>
+    </section>
+
+    <!-- Modal -->
+    <div id="movie-modal" class="modal">
+        <div class="modal-content projector-off">
+            <div class="film-dust"></div>
+            <span id="close-modal">✕</span>
+
+            <div class="modal-body">
+                
+                <div class="poster-frame">
+                    <div class="glass"></div>
+                    <img id="modal-cover" src="" alt="Cover">
+                </div>
+
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-meta"></p>
+                    <p id="modal-genre"></p>
+                    <p id="modal-rating"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
