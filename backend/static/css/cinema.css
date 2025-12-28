@@ -4,6 +4,12 @@
     --text-main: #f5f0e1;        /* Marfil */
     --accent-gold: #bfa26f;      /* Dorado apagado */
     --border-light: #444;        /* Bordes sutiles */
+    --diamond: #c9b37e;
+    --gold: #b08d57;
+    --platinum: #9fa3a7;
+    --good: #7d8f6b;
+    --acceptable: #a89f8a;
+    --bad: #6b6b6b;
 }
 
 /* Reset básico */
@@ -148,4 +154,247 @@ form button:hover {
 
 #search-input::placeholder {
     color: #aaa;
+}
+
+.stars {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.category {
+    margin-left: 0.5rem;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+.DIAMOND {
+    color: var(--diamond);
+    border-left-color: var(--diamond);
+}
+
+.GOLD {
+    color: var(--gold);
+    border-left-color: var(--gold);
+}
+
+.PLATINUM {
+    color: var(--platinum);
+    border-left-color: var(--platinum);
+}
+
+.GOOD {
+    color: var(--good);
+    border-left-color: var(--good);
+}
+
+.ACEPTABLE {
+    color: var(--acceptable);
+    border-left-color: var(--acceptable);
+}
+
+.BAD {
+    color: var(--bad);
+    border-left-color: var(--bad);
+}
+
+/* Modal fondo */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Oculto */
+.hidden {
+    display: none;
+}
+
+/* Contenido */
+.modal-content {
+    background: #141414;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    width: 70%;
+    max-width: 900px;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Cerrar */
+#close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--accent-gold);
+}
+
+/* Layout */
+.modal-body {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Cover */
+#modal-cover {
+    width: 260px;
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+}
+
+/* Info */
+.modal-info h2 {
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.modal-info p {
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+/* Marco del póster */
+.poster-frame {
+    position: relative;
+    padding: 12px;
+    background: linear-gradient(
+        145deg,
+        #3a2e1f,
+        #1f160c
+    );
+    border-radius: 8px;
+    box-shadow:
+        inset 0 0 10px rgba(0,0,0,0.8),
+        0 10px 30px rgba(0,0,0,0.7);
+}
+
+/* Imagen */
+.poster-frame img {
+    display: block;
+    width: 260px;
+    border-radius: 4px;
+}
+
+/* Vidrio */
+.poster-frame .glass {
+    position: absolute;
+    inset: 12px;
+    border-radius: 4px;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.02),
+        rgba(255,255,255,0.06)
+    );
+    pointer-events: none;
+}
+
+/* Reflejo sutil */
+.poster-frame::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 40%;
+    height: 40%;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.12),
+        transparent
+    );
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.modal-info {
+    padding-left: 1rem;
+}
+
+.modal-info p,
+.modal-info div {
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+.modal-info strong {
+    color: var(--accent-gold);
+    font-weight: normal;
+}
+
+/* Estado inicial: proyector apagado */
+.projector-off {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: brightness(0) contrast(1.2);
+}
+
+/* Encendido del proyector */
+.projector-on {
+    animation: projectorStart 1.2s ease-out forwards;
+}
+
+/* Animación principal */
+@keyframes projectorStart {
+    0% {
+        opacity: 0;
+        filter: brightness(0) contrast(1.4);
+        transform: scale(0.96);
+    }
+
+    20% {
+        opacity: 1;
+        filter: brightness(3) contrast(2);
+    }
+
+    35% {
+        filter: brightness(0.6) contrast(1.3);
+    }
+
+    55% {
+        filter: brightness(1.4) contrast(1.1);
+    }
+
+    75% {
+        filter: brightness(0.9) contrast(1);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(1) contrast(1);
+        transform: scale(1);
+    }
+}
+
+.projector-on {
+    animation:
+        projectorStart 1.2s ease-out forwards,
+        filmFlicker 0.12s infinite;
+}
+
+@keyframes filmFlicker {
+    0%   { filter: brightness(1); }
+    50%  { filter: brightness(1.03); }
+    100% { filter: brightness(1); }
+}
+
+.film-dust {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.15;
+    animation: dustMove 12s linear infinite;
+}
+
+@keyframes dustMove {
+    from { background-position: 0 0; }
+    to   { background-position: 100px 100px; }
 }

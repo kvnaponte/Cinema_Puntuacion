@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS movies (
 
     rating REAL,
     category TEXT,
+    cover_url TEXT,
 
     created_at TEXT DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT DEFAULT CURRENT_TIMESTAMP
