@@ -7,7 +7,7 @@ const searchInput = document.getElementById("search-input");
 let allMovies = [];
 
 /* =========================
-   Render principal
+   Render principa
 ========================= */
 async function renderMovies() {
     allMovies = await getMovies();
