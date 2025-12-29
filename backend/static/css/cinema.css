@@ -334,11 +334,6 @@ form button:hover {
     filter: brightness(0) contrast(1.2);
 }
 
-/* Encendido del proyector */
-.projector-on {
-    animation: projectorStart 1.2s ease-out forwards;
-}
-
 /* Animación principal */
 @keyframes projectorStart {
     0% {
@@ -397,4 +392,58 @@ form button:hover {
 @keyframes dustMove {
     from { background-position: 0 0; }
     to   { background-position: 100px 100px; }
+}
+
+/* Base del modal */
+.modal-content {
+    position: relative;
+    border-radius: 12px;
+    background: #0b0b0b;
+    transition: box-shadow 0.4s ease, background 0.4s ease;
+}
+
+/* DIAMOND */
+.modal-content.diamond {
+    box-shadow:
+        0 0 40px rgba(255, 215, 120, 0.25),
+        inset 0 0 80px rgba(255, 215, 120, 0.08);
+}
+
+/* GOLD */
+.modal-content.gold {
+    box-shadow:
+        0 0 35px rgba(255, 180, 80, 0.22),
+        inset 0 0 70px rgba(255, 180, 80, 0.06);
+}
+
+/* PLATINUM */
+.modal-content.platinum {
+    box-shadow:
+        0 0 30px rgba(200, 220, 255, 0.2),
+        inset 0 0 60px rgba(200, 220, 255, 0.06);
+}
+
+/* GOOD */
+.modal-content.good {
+    box-shadow:
+        0 0 25px rgba(140, 200, 140, 0.18),
+        inset 0 0 50px rgba(140, 200, 140, 0.05);
+}
+
+/* ACEPTABLE */
+.modal-content.aceptable {
+    box-shadow:
+        0 0 20px rgba(160, 160, 160, 0.15),
+        inset 0 0 40px rgba(160, 160, 160, 0.04);
+}
+
+/* BAD */
+.modal-content.bad {
+    box-shadow:
+        0 0 25px rgba(180, 60, 60, 0.2),
+        inset 0 0 60px rgba(180, 60, 60, 0.06);
+}
+
+.modal-content.diamond h2 {
+    text-shadow: 0 0 8px rgba(255, 215, 120, 0.6);
 }
