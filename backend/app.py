@@ -29,6 +29,7 @@ def get_connection():
         database=os.getenv("DB_NAME", "movies"),
         user=os.getenv("DB_USER", "kevin"),
         password=os.getenv("DB_PASSWORD", "1234"),
+        client_encoding="UTF8",
     )
 
 
