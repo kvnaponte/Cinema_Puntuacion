@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #121212;
+    color: #f5f0e1;
+    font-family: Georgia, serif;
+  }
+}
+
+@layer components {
+  .input-cinema {
+    @apply bg-cinema-bg border border-cinema-border rounded px-3 py-2
+           text-cinema-text text-sm w-full
+           placeholder:text-gray-600
+           focus:outline-none focus:border-cinema-gold
+           transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  @keyframes projectorStart {
+    0%   { opacity: 0; filter: brightness(0) contrast(1.4); transform: scale(0.97); }
+    20%  { opacity: 1; filter: brightness(3) contrast(2); }
+    40%  { filter: brightness(0.6) contrast(1.3); }
+    60%  { filter: brightness(1.4) contrast(1.1); }
+    80%  { filter: brightness(0.95) contrast(1); }
+    100% { opacity: 1; filter: brightness(1) contrast(1); transform: scale(1); }
+  }
+
+  @keyframes filmFlicker {
+    0%, 100% { filter: brightness(1); }
+    50%       { filter: brightness(1.03); }
+  }
+
+  @keyframes dustMove {
+    from { background-position: 0 0; }
+    to   { background-position: 100px 100px; }
+  }
+
+  .projector-on {
+    animation: projectorStart 1s ease-out forwards, filmFlicker 0.12s 1s infinite;
+  }
+
+  .film-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.15;
+    animation: dustMove 12s linear infinite;
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 1;
+  }
+}
