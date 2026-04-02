@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /media/prodigy/windows/Proyects/Cinema/frontend/static/js/*.js /media/prodigy/windows/Proyects/Cinema/backend/*.py)",
+      "Bash(grep -n \"API_URL\\\\|fetch\\\\|localhost\\\\|127.0.0.1\" /media/prodigy/windows/Proyects/Cinema/frontend/static/js/*.js)",
+      "Bash(python3 -m py_compile /media/prodigy/windows/Proyects/Cinema/backend/app.py)",
+      "Bash(python3 -m py_compile /media/prodigy/windows/Proyects/Cinema/backend/import.py)",
+      "Bash(python3)",
+      "Bash(node -c /media/prodigy/windows/Proyects/Cinema/frontend/static/js/api.js)",
+      "Bash(node -c /media/prodigy/windows/Proyects/Cinema/frontend/static/js/render.js)",
+      "Bash(python3 -c \"import sqlite3; conn = sqlite3.connect\\('backend/database.db'\\); c = conn.cursor\\(\\); c.execute\\('SELECT name FROM sqlite_master WHERE type=\\\\\"table\\\\\"'\\); print\\('Tables:', c.fetchall\\(\\)\\); c.execute\\('PRAGMA table_info\\(movies\\)'\\); print\\('Columns:', c.fetchall\\(\\)\\); conn.close\\(\\)\")",
+      "Bash(/home/prodigy/Documentos/Proyectos/Cinema/venv/bin/python -c ':*)",
+      "Bash(python -c ':*)",
+      "Bash(npm --version)",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('/home/prodigy/Documentos/Proyectos/Cinema/backend/app.py'\\).read\\(\\)\\); print\\('Python syntax OK'\\)\")",
+      "Bash(python -c \"import ast; ast.parse\\(open\\('/home/prodigy/Documentos/Proyectos/Cinema/backend/app.py'\\).read\\(\\)\\); print\\('app.py: OK'\\)\")"
+    ]
+  }
+}
