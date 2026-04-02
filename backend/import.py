@@ -2,7 +2,7 @@ import sqlite3
 import psycopg2
 
 # Conectar SQLite
-sqlite_conn = sqlite3.connect("database.db")
+sqlite_conn = sqlite3.connect("backend/database.db")
 sqlite_conn.row_factory = sqlite3.Row
 sqlite_cursor = sqlite_conn.cursor()
 

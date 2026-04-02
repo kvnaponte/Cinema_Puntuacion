@@ -36,6 +36,8 @@ def get_stars(rating) -> int:
     if rating is None:
         return 1
     rating = float(rating)
+    if rating >= 9.5:
+        return 5
     if rating >= 8.8:
         return 5
     if rating >= 8.0:
