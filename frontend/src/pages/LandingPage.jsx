@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { fetchMovies } from '../api.js'
-import { MarqueeLights, Column, Lantern, HeaderCorner, TheaterBackground, LightSwitch } from '../components/TheaterFrame.jsx'
+import { MarqueeLights, HeaderCorner, TheaterBackground } from '../components/TheaterFrame.jsx'
 
 function formatRating(r) {
   const n = Number(r)
@@ -94,27 +94,17 @@ export default function LandingPage() {
 
   return (
     <TheaterBackground>
-      {/* Container widened to 1300 to accommodate Top-5 panel on the left */}
       <div style={{ position: 'relative', width: '100%', maxWidth: 1300, padding: '40px 0' }}>
 
-        <Column side="left"  />
-        <Column side="right" />
-        <Lantern side="left"  />
-        <Lantern side="right" />
-        <LightSwitch />
-
-        {/* ── Top-5 panel (between left column and main panel) ─── */}
+        {/* ── Top-5 panel — over left wall area ─── */}
         <div style={{
           position: 'absolute',
-          top: 40, left: 116,
-          width: 186,
+          top: 210, left: 32,
+          width: 190,
           zIndex: 5,
-          background: `
-            radial-gradient(ellipse at 50% 0%, rgba(100,62,8,0.18) 0%, transparent 55%),
-            linear-gradient(180deg, #2c1e0a 0%, #1c1206 50%, #221608 100%)
-          `,
-          border: '2px solid #7a5c18',
-          boxShadow: 'inset 0 0 40px rgba(0,0,0,0.6), 0 4px 20px rgba(0,0,0,0.5)',
+          background: 'rgba(12,8,2,0.82)',
+          border: '1px solid #5a4010',
+          boxShadow: 'inset 0 0 30px rgba(0,0,0,0.7)',
         }}>
           {/* Header */}
           <div style={{ padding: '10px 10px 8px', borderBottom: '2px solid #4a3510' }}>
@@ -183,20 +173,18 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* ── Main facade (shifted right to leave room for top-5) ── */}
+        {/* ── Main facade ── */}
         <div style={{
-          marginLeft: 310, marginRight: 108, position: 'relative',
-          background: `
-            radial-gradient(ellipse at 50% 0%,   rgba(120,72,10,0.2) 0%, transparent 50%),
-            radial-gradient(ellipse at 50% 100%, rgba(35,18,0,0.6)   0%, transparent 50%),
-            linear-gradient(180deg, #2c1e0a 0%, #1c1206 50%, #221608 100%)
-          `,
-          border: '3px solid #7a5c18',
-          boxShadow: 'inset 0 0 120px rgba(0,0,0,0.7), 0 0 60px rgba(90,55,8,0.18)',
+          marginLeft: 240 , marginRight: 80, position: 'relative',
+          background: 'rgba(14,9,2,0.78)',
+          boxShadow: 'inset 0 0 80px rgba(0,0,0,0.6)',
         }}>
 
           {/* Header band */}
-          <div style={{ background: 'linear-gradient(180deg, #261b07 0%, #1c1205 100%)', borderBottom: '3px solid #7a5c18' }}>
+          <div style={{
+            background: 'rgba(20,13,3,0.6)',
+            borderBottom: '2px solid #5a4010',
+          }}>
             <div style={{ paddingTop: 11, paddingBottom: 11 }}>
               <MarqueeLights count={42} />
             </div>
@@ -204,9 +192,9 @@ export default function LandingPage() {
             {/* Title panel */}
             <div style={{
               position: 'relative', margin: '0 24px 12px',
-              border: '2px solid #9a7428',
-              background: 'linear-gradient(180deg, #201608 0%, #160e04 100%)',
-              boxShadow: 'inset 0 0 60px rgba(0,0,0,0.6), 0 0 24px rgba(0,0,0,0.5)',
+              border: '1px solid #7a5c18',
+              background: 'rgba(10,6,1,0.55)',
+              boxShadow: 'inset 0 0 40px rgba(0,0,0,0.5)',
             }}>
               <div style={{ position: 'absolute', top: 6, left: 6 }}><HeaderCorner rot={0}   /></div>
               <div style={{ position: 'absolute', top: 6, right: 6 }}><HeaderCorner rot={90}  /></div>
@@ -247,7 +235,7 @@ export default function LandingPage() {
                 style={{
                   position: 'relative', textAlign: 'center', cursor: 'pointer',
                   transition: 'transform 0.28s ease',
-                  background: 'radial-gradient(ellipse at 50% 0%, rgba(100,62,8,0.2) 0%, transparent 60%), linear-gradient(170deg, #221608 0%, #160e04 100%)',
+                  background: 'rgba(12,7,1,0.72)',
                   border: '2px solid #7a5a18',
                   boxShadow: 'inset 0 0 50px rgba(0,0,0,0.6), 0 0 0 1px #2e2005, 0 6px 28px rgba(0,0,0,0.5)',
                   padding: 0, borderRadius: 0,
@@ -299,7 +287,7 @@ export default function LandingPage() {
         </div>
 
         {/* Floor */}
-        <div style={{ marginLeft: 310, marginRight: 108, height: 36, background: 'linear-gradient(to bottom, rgba(90,55,8,0.14) 0%, transparent 100%)' }} />
+        <div style={{ marginLeft: 240, marginRight: 80, height: 20 }} />
 
       </div>
     </TheaterBackground>

@@ -28,37 +28,29 @@ export function MarqueeLights({ count = 28, size = 9 }) {
 }
 
 export function Column({ side }) {
-  const flutes = 9
   return (
     <div style={{
       position: 'absolute', top: 0, bottom: 0, width: 108, [side]: 0, zIndex: 2,
       display: 'flex', flexDirection: 'column', overflow: 'hidden',
     }}>
+      {/* Top gold cap */}
       <div style={{ height: 12, flexShrink: 0, background: 'linear-gradient(to bottom, #c49020, #8a6210 60%, #5a3e08)', boxShadow: '0 3px 10px rgba(0,0,0,0.8)' }} />
       <div style={{ height: 6, flexShrink: 0, background: 'linear-gradient(to bottom, #3a2606, #201404)' }} />
-      <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #0c0802 0%, #1c1206 25%, #231608 50%, #1c1206 75%, #0c0802 100%)' }} />
-        {Array.from({ length: flutes }).map((_, i) => {
-          const pct = (i / (flutes - 1)) * 100
-          return (
-            <div key={i} style={{
-              position: 'absolute', top: 0, bottom: 0,
-              left: `calc(${pct}% - 4px)`, width: 8,
-              background: 'radial-gradient(ellipse at 50% 40%, rgba(160,105,22,0.5) 0%, rgba(90,58,10,0.25) 50%, transparent 100%)',
-              borderLeft: '1px solid rgba(140,88,16,0.18)',
-              borderRight: '1px solid rgba(0,0,0,0.55)',
-            }} />
-          )
-        })}
-        <div style={{
-          position: 'absolute', top: '8%', width: '110%', height: '40%',
-          left: side === 'left' ? '20%' : '-30%',
-          background: 'radial-gradient(ellipse, rgba(200,138,26,0.22) 0%, transparent 65%)',
-          pointerEvents: 'none',
-        }} />
-      </div>
+
+      {/* Column body — texture PNG clipped to the relevant half */}
+      <div style={{
+        flex: 1, position: 'relative', overflow: 'hidden',
+        backgroundImage: 'url(/textures/texture-column.png)',
+        backgroundSize: '200% 100%',
+        backgroundPosition: side === 'left' ? 'left center' : 'right center',
+        backgroundRepeat: 'no-repeat',
+      }} />
+
+      {/* Bottom gold cap */}
       <div style={{ height: 6, flexShrink: 0, background: 'linear-gradient(to top, #3a2606, #201404)' }} />
       <div style={{ height: 12, flexShrink: 0, background: 'linear-gradient(to top, #c49020, #8a6210 60%, #5a3e08)', boxShadow: '0 -3px 10px rgba(0,0,0,0.8)' }} />
+
+      {/* Gold inner edge strip */}
       <div style={{
         position: 'absolute', top: 0, bottom: 0, width: 4,
         [side === 'left' ? 'right' : 'left']: 0,
@@ -239,14 +231,10 @@ export function TheaterBackground({ children }) {
       minHeight: '100vh',
       position: 'relative',
       overflow: 'hidden',
-      background: `
-        radial-gradient(ellipse at 8%  45%, rgba(110,65,8,0.85)  0%, transparent 38%),
-        radial-gradient(ellipse at 92% 45%, rgba(90,50,5,0.85)   0%, transparent 38%),
-        radial-gradient(ellipse at 50% 8%,  rgba(110,68,8,0.65)  0%, transparent 42%),
-        radial-gradient(ellipse at 50% 95%, rgba(15,8,0,0.95)    0%, transparent 32%),
-        radial-gradient(ellipse at 50% 50%, rgba(55,30,4,0.4)    0%, transparent 65%),
-        #0a0602
-      `,
+      backgroundImage: `url(/textures/texture-wall.jpg)`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
     }}>
       {/* Darkness overlay — fades in when lights are off */}
       <div style={{

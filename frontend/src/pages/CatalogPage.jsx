@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { fetchMovies } from '../api.js'
 import AddMovieForm from '../components/AddMovieForm.jsx'
 import MovieModal from '../components/MovieModal.jsx'
-import { MarqueeLights, Column, Lantern, HeaderCorner, TheaterBackground, LightSwitch } from '../components/TheaterFrame.jsx'
+import { MarqueeLights, HeaderCorner, TheaterBackground } from '../components/TheaterFrame.jsx'
 
 const PER_PAGE = 10
 
@@ -131,26 +131,18 @@ export default function CatalogPage({ onlyPending = false }) {
     <TheaterBackground>
       <div style={{ position: 'relative', width: '100%', maxWidth: 1180, padding: '32px 0' }}>
 
-        <Column side="left"  />
-        <Column side="right" />
-        <Lantern side="left"  />
-        <Lantern side="right" />
-        <LightSwitch />
-
         {/* ── Main panel ───────────────────────────────────── */}
         <div style={{
-          marginLeft: 108, marginRight: 108, position: 'relative',
-          background: `
-            radial-gradient(ellipse at 50% 0%,   rgba(120,72,10,0.18) 0%, transparent 50%),
-            radial-gradient(ellipse at 50% 100%, rgba(30,15,0,0.65)   0%, transparent 50%),
-            linear-gradient(180deg, #2c1e0a 0%, #1c1206 50%, #221608 100%)
-          `,
-          border: '3px solid #7a5c18',
-          boxShadow: 'inset 0 0 120px rgba(0,0,0,0.7), 0 0 60px rgba(90,55,8,0.18)',
+          marginLeft: 160, marginRight: 160, position: 'relative',
+          background: 'rgba(14,9,2,0.78)',
+          boxShadow: 'inset 0 0 80px rgba(0,0,0,0.6)',
         }}>
 
           {/* ── Header band ────────────────────────────────── */}
-          <div style={{ background: 'linear-gradient(180deg, #261b07 0%, #1c1205 100%)', borderBottom: '3px solid #7a5c18' }}>
+          <div style={{
+            background: 'rgba(20,13,3,0.6)',
+            borderBottom: '2px solid #5a4010',
+          }}>
             <div style={{ paddingTop: 10, paddingBottom: 10 }}>
               <MarqueeLights count={46} />
             </div>
@@ -158,9 +150,9 @@ export default function CatalogPage({ onlyPending = false }) {
             {/* Title panel */}
             <div style={{
               position: 'relative', margin: '0 22px 10px',
-              border: '2px solid #9a7428',
-              background: 'linear-gradient(180deg, #201608 0%, #160e04 100%)',
-              boxShadow: 'inset 0 0 60px rgba(0,0,0,0.6)',
+              border: '1px solid #7a5c18',
+              background: 'rgba(10,6,1,0.55)',
+              boxShadow: 'inset 0 0 40px rgba(0,0,0,0.5)',
             }}>
               <div style={{ position: 'absolute', top: 6, left: 6 }}><HeaderCorner rot={0}   /></div>
               <div style={{ position: 'absolute', top: 6, right: 6 }}><HeaderCorner rot={90}  /></div>
